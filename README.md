@@ -55,5 +55,5 @@ This case study uses the [FitBit Fitness Tracker Data](https://www.kaggle.com/da
 
 ## 📬 Contact
 
-For questions or feedback, please reach out via GitHub Issues or email me at [your-email@example.com].
+For questions or feedback, please reach out via GitHub Issues or email me at [zhengshumaoye@gmail.com].
 
