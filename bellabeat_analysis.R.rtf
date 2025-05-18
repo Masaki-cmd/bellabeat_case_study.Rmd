@@ -1,0 +1,382 @@
+{\rtf1\ansi\ansicpg932\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red0\green0\blue0;
+\red40\green80\blue147;\red19\green135\blue136;\red190\green0\blue4;\red64\green140\blue9;\red130\green130\blue130;
+\red182\green0\blue12;\red174\green174\blue174;\red9\green9\blue9;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c20392\c39608\c64314;\cssrgb\c2353\c59608\c60392;\cssrgb\c80000\c0\c0;\cssrgb\c30588\c60392\c2353;\cssrgb\c58039\c58039\c58039;
+\cssrgb\c77255\c2353\c4314;\cssrgb\c73725\c73725\c73725;\cssrgb\c3137\c3137\c3137;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh16000\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 > library(tidyverse)\
+> > # \uc0\u12487 \u12540 \u12479 \u12398 \u35501 \u12415 \u36796 \u12415 \
+> activity_data <- read_csv("dailyActivity_merged.csv")\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 Rows: \cf5 \strokec5 457\cf0 \strokec4  Columns: \cf5 \strokec5 15\cf0 \strokec4                                                   \
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u9472 \u9472 \cf0 \strokec4  Column specification \cf6 \strokec6 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Delimiter: ","\
+\pard\pardeftab720\partightenfactor0
+\cf7 \strokec7 chr\cf0 \strokec4   (1): ActivityDate\
+\pard\pardeftab720\partightenfactor0
+\cf8 \strokec8 dbl\cf0 \strokec4  (14): Id, TotalSteps, TotalDistance, TrackerDistance, LoggedAct...\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Use `spec()` to retrieve the full column specification for this data.\
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Specify the column types or set `show_col_types = FALSE` to quiet this message.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u12487 \u12540 \u12479 \u12398 \u27083 \u36896 \u12434 \u30906 \u35469 \
+> glimpse(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 Rows: 457\
+Columns: 15\
+$ Id                       \cf9 \strokec9 <dbl>\cf0 \strokec4  1503960366\cf9 \strokec9 , \cf0 \strokec4 1503960366\cf9 \strokec9 , \cf0 \strokec4 1503960366\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ ActivityDate             \cf9 \strokec9 <chr>\cf0 \strokec4  "3/25/2016"\cf9 \strokec9 , \cf0 \strokec4 "3/26/2016"\cf9 \strokec9 , \cf0 \strokec4 "3/27/2016\'85\
+$ TotalSteps               \cf9 \strokec9 <dbl>\cf0 \strokec4  11004\cf9 \strokec9 , \cf0 \strokec4 17609\cf9 \strokec9 , \cf0 \strokec4 12736\cf9 \strokec9 , \cf0 \strokec4 13231\cf9 \strokec9 , \cf0 \strokec4 12041\cf9 \strokec9 , \cf0 \strokec4 1\'85\
+$ TotalDistance            \cf9 \strokec9 <dbl>\cf0 \strokec4  7.11\cf9 \strokec9 , \cf0 \strokec4 11.55\cf9 \strokec9 , \cf0 \strokec4 8.53\cf9 \strokec9 , \cf0 \strokec4 8.93\cf9 \strokec9 , \cf0 \strokec4 7.85\cf9 \strokec9 , \cf0 \strokec4 7.16\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ TrackerDistance          \cf9 \strokec9 <dbl>\cf0 \strokec4  7.11\cf9 \strokec9 , \cf0 \strokec4 11.55\cf9 \strokec9 , \cf0 \strokec4 8.53\cf9 \strokec9 , \cf0 \strokec4 8.93\cf9 \strokec9 , \cf0 \strokec4 7.85\cf9 \strokec9 , \cf0 \strokec4 7.16\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ LoggedActivitiesDistance \cf9 \strokec9 <dbl>\cf0 \strokec4  0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ VeryActiveDistance       \cf9 \strokec9 <dbl>\cf0 \strokec4  2.57\cf9 \strokec9 , \cf0 \strokec4 6.92\cf9 \strokec9 , \cf0 \strokec4 4.66\cf9 \strokec9 , \cf0 \strokec4 3.19\cf9 \strokec9 , \cf0 \strokec4 2.16\cf9 \strokec9 , \cf0 \strokec4 2.36\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ ModeratelyActiveDistance \cf9 \strokec9 <dbl>\cf0 \strokec4  0.46\cf9 \strokec9 , \cf0 \strokec4 0.73\cf9 \strokec9 , \cf0 \strokec4 0.16\cf9 \strokec9 , \cf0 \strokec4 0.79\cf9 \strokec9 , \cf0 \strokec4 1.09\cf9 \strokec9 , \cf0 \strokec4 0.51\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ LightActiveDistance      \cf9 \strokec9 <dbl>\cf0 \strokec4  4.07\cf9 \strokec9 , \cf0 \strokec4 3.91\cf9 \strokec9 , \cf0 \strokec4 3.71\cf9 \strokec9 , \cf0 \strokec4 4.95\cf9 \strokec9 , \cf0 \strokec4 4.61\cf9 \strokec9 , \cf0 \strokec4 4.29\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ SedentaryActiveDistance  \cf9 \strokec9 <dbl>\cf0 \strokec4  0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ VeryActiveMinutes        \cf9 \strokec9 <dbl>\cf0 \strokec4  33\cf9 \strokec9 , \cf0 \strokec4 89\cf9 \strokec9 , \cf0 \strokec4 56\cf9 \strokec9 , \cf0 \strokec4 39\cf9 \strokec9 , \cf0 \strokec4 28\cf9 \strokec9 , \cf0 \strokec4 30\cf9 \strokec9 , \cf0 \strokec4 33\cf9 \strokec9 , \cf0 \strokec4 47\cf9 \strokec9 , \cf0 \strokec4 40\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ FairlyActiveMinutes      \cf9 \strokec9 <dbl>\cf0 \strokec4  12\cf9 \strokec9 , \cf0 \strokec4 17\cf9 \strokec9 , \cf0 \strokec4 5\cf9 \strokec9 , \cf0 \strokec4 20\cf9 \strokec9 , \cf0 \strokec4 28\cf9 \strokec9 , \cf0 \strokec4 13\cf9 \strokec9 , \cf0 \strokec4 12\cf9 \strokec9 , \cf0 \strokec4 21\cf9 \strokec9 , \cf0 \strokec4 11\cf9 \strokec9 , \cf0 \strokec4 3\'85\
+$ LightlyActiveMinutes     \cf9 \strokec9 <dbl>\cf0 \strokec4  205\cf9 \strokec9 , \cf0 \strokec4 274\cf9 \strokec9 , \cf0 \strokec4 268\cf9 \strokec9 , \cf0 \strokec4 224\cf9 \strokec9 , \cf0 \strokec4 243[38;5;246m, 223\cf9 \strokec9 , \cf0 \strokec4 239\cf9 \strokec9 , \cf0 \strokec4 2\'85\
+$ SedentaryMinutes         \cf9 \strokec9 <dbl>\cf0 \strokec4  804\cf9 \strokec9 , \cf0 \strokec4 588\cf9 \strokec9 , \cf0 \strokec4 605\cf9 \strokec9 , \cf0 \strokec4 1080\cf9 \strokec9 , \cf0 \strokec4 763\cf9 \strokec9 , \cf0 \strokec4 1174\cf9 \strokec9 , \cf0 \strokec4 820\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ Calories                 \cf9 \strokec9 <dbl>\cf0 \strokec4  1819\cf9 \strokec9 , \cf0 \strokec4 2154\cf9 \strokec9 , \cf0 \strokec4 1944\cf9 \strokec9 , \cf0 \strokec4 1932\cf9 \strokec9 , \cf0 \strokec4 1886\cf9 \strokec9 , \cf0 \strokec4 1820\cf9 \strokec9 , \cf0 \strokec4 \'85\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > summary(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4        Id            ActivityDate         TotalSteps   \
+ Min.   :1.504e+09   Length:457         Min.   :    0  \
+ 1st Qu.:2.347e+09   Class :character   1st Qu.: 1988  \
+ Median :4.057e+09   Mode  :character   Median : 5986  \
+ Mean   :4.629e+09                      Mean   : 6547  \
+ 3rd Qu.:6.392e+09                      3rd Qu.:10198  \
+ Max.   :8.878e+09                      Max.   :28497  \
+ TotalDistance    TrackerDistance LoggedActivitiesDistance\
+ Min.   : 0.000   Min.   : 0.00   Min.   :0.0000          \
+ 1st Qu.: 1.410   1st Qu.: 1.28   1st Qu.:0.0000          \
+ Median : 4.090   Median : 4.09   Median :0.0000          \
+ Mean   : 4.664   Mean   : 4.61   Mean   :0.1794          \
+ 3rd Qu.: 7.160   3rd Qu.: 7.11   3rd Qu.:0.0000          \
+ Max.   :27.530   Max.   :27.53   Max.   :6.7271          \
+ VeryActiveDistance ModeratelyActiveDistance LightActiveDistance\
+ Min.   : 0.000     Min.   :0.0000           Min.   : 0.00      \
+ 1st Qu.: 0.000     1st Qu.:0.0000           1st Qu.: 0.87      \
+ Median : 0.000     Median :0.0200           Median : 2.93      \
+ Mean   : 1.181     Mean   :0.4786           Mean   : 2.89      \
+ 3rd Qu.: 1.310     3rd Qu.:0.6700           3rd Qu.: 4.46      \
+ Max.   :21.920     Max.   :6.4000           Max.   :12.51      \
+ SedentaryActiveDistance VeryActiveMinutes FairlyActiveMinutes\
+ Min.   :0.000000        Min.   :  0.00    Min.   :  0.00     \
+ 1st Qu.:0.000000        1st Qu.:  0.00    1st Qu.:  0.00     \
+ Median :0.000000        Median :  0.00    Median :  1.00     \
+ Mean   :0.001904        Mean   : 16.62    Mean   : 13.07     \
+ 3rd Qu.:0.000000        3rd Qu.: 25.00    3rd Qu.: 16.00     \
+ Max.   :0.100000        Max.   :202.00    Max.   :660.00     \
+ LightlyActiveMinutes SedentaryMinutes    Calories   \
+ Min.   :  0.0        Min.   :  32.0   Min.   :   0  \
+ 1st Qu.: 64.0        1st Qu.: 728.0   1st Qu.:1776  \
+ Median :181.0        Median :1057.0   Median :2062  \
+ Mean   :170.1        Mean   : 995.3   Mean   :2189  \
+ 3rd Qu.:257.0        3rd Qu.:1285.0   3rd Qu.:2667  \
+ Max.   :720.0        Max.   :1440.0   Max.   :4562  \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u26085 \u20184 \u24418 \u24335 \u12398 \u25972 \u24418 \u65288 \u20363 \u65289 \
+> activity_data <- activity_data %>%\
++     mutate(ActivityDate = as.Date(ActivityDate, format="%m/%d/%Y"))\
+> > # \uc0\u27424 \u25613 \u20516 \u12398 \u30906 \u35469 \
+> colSums(is.na(activity_data))\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4                       Id             ActivityDate \
+                       0                        0 \
+              TotalSteps            TotalDistance \
+                       0                        0 \
+         TrackerDistance LoggedActivitiesDistance \
+                       0                        0 \
+      VeryActiveDistance ModeratelyActiveDistance \
+                       0                        0 \
+     LightActiveDistance  SedentaryActiveDistance \
+                       0                        0 \
+       VeryActiveMinutes      FairlyActiveMinutes \
+                       0                        0 \
+    LightlyActiveMinutes         SedentaryMinutes \
+                       0                        0 \
+                Calories \
+                       0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u37325 \u35079 \u34892 \u12398 \u21066 \u38500 \
+> activity_data <- activity_data %>% distinct()\
+> > sleep_data <- read_csv("sleepDay_merged.csv")\
+\pard\pardeftab720\partightenfactor0
+\cf10 \strokec10 Error: 'sleepDay_merged.csv' does not exist in current working directory ('/cloud/project').\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > sleep_data <- read_csv("sleepDay_merged.csv")\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 Rows: \cf5 \strokec5 413\cf0 \strokec4  Columns: \cf5 \strokec5 5\cf0 \strokec4                                                    \
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u9472 \u9472 \cf0 \strokec4  Column specification \cf6 \strokec6 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Delimiter: ","\
+\pard\pardeftab720\partightenfactor0
+\cf7 \strokec7 chr\cf0 \strokec4  (1): SleepDay\
+\pard\pardeftab720\partightenfactor0
+\cf8 \strokec8 dbl\cf0 \strokec4  (4): Id, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Use `spec()` to retrieve the full column specification for this data.\
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Specify the column types or set `show_col_types = FALSE` to quiet this message.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u26085 \u20184 \u12398 \u25972 \u24418 \
+> sleep_data <- sleep_data %>%\
++     mutate(SleepDay = as.Date(SleepDay, format="%m/%d/%Y"))\
+> > # \uc0\u12487 \u12540 \u12479 \u12398 \u32080 \u21512 \u65288 \u20363 \u65306 activity\u12392 sleep\u65289 \
+> merged_data <- left_join(activity_data, sleep_data, \
++                          by = c("Id" = "Id", "ActivityDate" = "SleepDay"))\
+> > # \uc0\u12521 \u12452 \u12502 \u12521 \u12522 \u35501 \u12415 \u36796 \u12415 \
+> library(tidyverse)\
+> > # \uc0\u12487 \u12540 \u12479 \u35501 \u12415 \u36796 \u12415 \
+> activity_data <- read_csv("dailyActivity_merged.csv")\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 Rows: \cf5 \strokec5 457\cf0 \strokec4  Columns: \cf5 \strokec5 15\cf0 \strokec4                                                   \
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u9472 \u9472 \cf0 \strokec4  Column specification \cf6 \strokec6 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Delimiter: ","\
+\pard\pardeftab720\partightenfactor0
+\cf7 \strokec7 chr\cf0 \strokec4   (1): ActivityDate\
+\pard\pardeftab720\partightenfactor0
+\cf8 \strokec8 dbl\cf0 \strokec4  (14): Id, TotalSteps, TotalDistance, TrackerDistance, LoggedAct...\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Use `spec()` to retrieve the full column specification for this data.\
+\cf6 \strokec6 \uc0\u8505 \cf0 \strokec4  Specify the column types or set `show_col_types = FALSE` to quiet this message.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u12487 \u12540 \u12479 \u12398 \u20808 \u38957 6\u34892 \u12434 \u34920 \u31034 \
+> head(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf9 \strokec9 # A tibble: 6 \'d7 15\cf0 \strokec4 \
+          Id ActivityDate TotalSteps TotalDistance TrackerDistance\
+       \cf9 \strokec9 <dbl>\cf0 \strokec4  \cf9 \strokec9 <chr>\cf0 \strokec4              \cf9 \strokec9 <dbl>\cf0 \strokec4          \cf9 \strokec9 <dbl>\cf0 \strokec4            \cf9 \strokec9 <dbl>\cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf11 \strokec11 1\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/25/2016         \ul 11\ulnone 004          7.11            7.11\
+\cf11 \strokec11 2\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/26/2016         \ul 17\ulnone 609         11.6            11.6 \
+\cf11 \strokec11 3\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/27/2016         \ul 12\ulnone 736          8.53            8.53\
+\cf11 \strokec11 4\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/28/2016         \ul 13\ulnone 231          8.93            8.93\
+\cf11 \strokec11 5\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/29/2016         \ul 12\ulnone 041          7.85            7.85\
+\cf11 \strokec11 6\cf0 \strokec4  \ul 1\ulnone 503\ul 960\ulnone 366 3/30/2016         \ul 10\ulnone 970          7.16            7.16\
+\pard\pardeftab720\partightenfactor0
+\cf9 \strokec9 # \uc0\u8505  10 more variables: LoggedActivitiesDistance <dbl>,\cf0 \strokec4 \
+\cf9 \strokec9 #   VeryActiveDistance <dbl>, ModeratelyActiveDistance <dbl>,\cf0 \strokec4 \
+\cf9 \strokec9 #   LightActiveDistance <dbl>, SedentaryActiveDistance <dbl>,\cf0 \strokec4 \
+\cf9 \strokec9 #   VeryActiveMinutes <dbl>, FairlyActiveMinutes <dbl>,\cf0 \strokec4 \
+\cf9 \strokec9 #   LightlyActiveMinutes <dbl>, SedentaryMinutes <dbl>, Calories <dbl>\cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u12487 \u12540 \u12479 \u27083 \u36896 \u12434 \u30906 \u35469 \
+> glimpse(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 Rows: 457\
+Columns: 15\
+$ Id                       \cf9 \strokec9 <dbl>\cf0 \strokec4  1503960366\cf9 \strokec9 , \cf0 \strokec4 1503960366\cf9 \strokec9 , \cf0 \strokec4 1503960366\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ ActivityDate             \cf9 \strokec9 <chr>\cf0 \strokec4  "3/25/2016"\cf9 \strokec9 , \cf0 \strokec4 "3/26/2016"\cf9 \strokec9 , \cf0 \strokec4 "3/27/2016\'85\
+$ TotalSteps               \cf9 \strokec9 <dbl>\cf0 \strokec4  11004\cf9 \strokec9 , \cf0 \strokec4 17609\cf9 \strokec9 , \cf0 \strokec4 12736\cf9 \strokec9 , \cf0 \strokec4 13231\cf9 \strokec9 , \cf0 \strokec4 12041\cf9 \strokec9 , \cf0 \strokec4 1\'85\
+$ TotalDistance            \cf9 \strokec9 <dbl>\cf0 \strokec4  7.11\cf9 \strokec9 , \cf0 \strokec4 11.55\cf9 \strokec9 , \cf0 \strokec4 8.53\cf9 \strokec9 , \cf0 \strokec4 8.93\cf9 \strokec9 , \cf0 \strokec4 7.85\cf9 \strokec9 , \cf0 \strokec4 7.16\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ TrackerDistance          \cf9 \strokec9 <dbl>\cf0 \strokec4  7.11\cf9 \strokec9 , \cf0 \strokec4 11.55\cf9 \strokec9 , \cf0 \strokec4 8.53\cf9 \strokec9 , \cf0 \strokec4 8.93\cf9 \strokec9 , \cf0 \strokec4 7.85\cf9 \strokec9 , \cf0 \strokec4 7.16\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ LoggedActivitiesDistance \cf9 \strokec9 <dbl>\cf0 \strokec4  0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 0\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ VeryActiveDistance       \cf9 \strokec9 <dbl>\cf0 \strokec4  2.57\cf9 \strokec9 , \cf0 \strokec4 6.92\cf9 \strokec9 , \cf0 \strokec4 4.66\cf9 \strokec9 , \cf0 \strokec4 3.19\cf9 \strokec9 , \cf0 \strokec4 2.16\cf9 \strokec9 , \cf0 \strokec4 2.36\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ ModeratelyActiveDistance \cf9 \strokec9 <dbl>\cf0 \strokec4  0.46\cf9 \strokec9 , \cf0 \strokec4 0.73\cf9 \strokec9 , \cf0 \strokec4 0.16\cf9 \strokec9 , \cf0 \strokec4 0.79\cf9 \strokec9 , \cf0 \strokec4 1.09\cf9 \strokec9 , \cf0 \strokec4 0.51\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ LightActiveDistance      \cf9 \strokec9 <dbl>\cf0 \strokec4  4.07\cf9 \strokec9 , \cf0 \strokec4 3.91\cf9 \strokec9 , \cf0 \strokec4 3.71\cf9 \strokec9 , \cf0 \strokec4 4.95\cf9 \strokec9 , \cf0 \strokec4 4.61\cf9 \strokec9 , \cf0 \strokec4 4.29\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ SedentaryActiveDistance  \cf9 \strokec9 <dbl>\cf0 \strokec4  0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 0.00\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ VeryActiveMinutes        \cf9 \strokec9 <dbl>\cf0 \strokec4  33\cf9 \strokec9 , \cf0 \strokec4 89\cf9 \strokec9 , \cf0 \strokec4 56\cf9 \strokec9 , \cf0 \strokec4 39\cf9 \strokec9 , \cf0 \strokec4 28\cf9 \strokec9 , \cf0 \strokec4 30\cf9 \strokec9 , \cf0 \strokec4 33\cf9 \strokec9 , \cf0 \strokec4 47\cf9 \strokec9 , \cf0 \strokec4 40\cf9 \strokec9 , \cf0 \strokec4 \'85\
+$ FairlyActiveMinutes      \cf9 \strokec9 <dbl>\cf0 \strokec4  12\cf9 \strokec9 , \cf0 \strokec4 17\cf9 \strokec9 , \cf0 \strokec4 5\cf9 \strokec9 , \cf0 \strokec4 20\cf9 \strokec9 , \cf0 \strokec4 28\cf9 \strokec9 , \cf0 \strokec4 13\cf9 \strokec9 , \cf0 \strokec4 12\cf9 \strokec9 , \cf0 \strokec4 21\cf9 \strokec9 , \cf0 \strokec4 11\cf9 \strokec9 , \cf0 \strokec4 3\'85\
+$ LightlyActiveMinutes     \cf9 \strokec9 <dbl>\cf0 \strokec4  205\cf9 \strokec9 , \cf0 \strokec4 274\cf9 \strokec9 , \cf0 \strokec4 268\cf9 \strokec9 , \cf0 \strokec4 224\cf9 \strokec9 , \cf0 \strokec4 243[38;5;246m, 223\cf9 \strokec9 , \cf0 \strokec4 239\cf9 \strokec9 , \cf0 \strokec4 2\'85\
+$ SedentaryMinutes         \cf9 \strokec9 <dbl>\cf0 \strokec4  804\cf9 \strokec9 , \cf0 \strokec4 588\cf9 \strokec9 , \cf0 \strokec4 605\cf9 \strokec9 , \cf0 \strokec4 1080\cf9 \strokec9 , \cf0 \strokec4 763\cf9 \strokec9 , \cf0 \strokec4 1174\cf9 \strokec9 , \cf0 \strokec4 820\cf9 \strokec9 ,\cf0 \strokec4 \'85\
+$ Calories                 \cf9 \strokec9 <dbl>\cf0 \strokec4  1819\cf9 \strokec9 , \cf0 \strokec4 2154\cf9 \strokec9 , \cf0 \strokec4 1944\cf9 \strokec9 , \cf0 \strokec4 1932\cf9 \strokec9 , \cf0 \strokec4 1886\cf9 \strokec9 , \cf0 \strokec4 1820\cf9 \strokec9 , \cf0 \strokec4 \'85\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u22522 \u26412 \u32113 \u35336 \u37327 \u12434 \u34920 \u31034 \
+> summary(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4        Id            ActivityDate         TotalSteps   \
+ Min.   :1.504e+09   Length:457         Min.   :    0  \
+ 1st Qu.:2.347e+09   Class :character   1st Qu.: 1988  \
+ Median :4.057e+09   Mode  :character   Median : 5986  \
+ Mean   :4.629e+09                      Mean   : 6547  \
+ 3rd Qu.:6.392e+09                      3rd Qu.:10198  \
+ Max.   :8.878e+09                      Max.   :28497  \
+ TotalDistance    TrackerDistance LoggedActivitiesDistance\
+ Min.   : 0.000   Min.   : 0.00   Min.   :0.0000          \
+ 1st Qu.: 1.410   1st Qu.: 1.28   1st Qu.:0.0000          \
+ Median : 4.090   Median : 4.09   Median :0.0000          \
+ Mean   : 4.664   Mean   : 4.61   Mean   :0.1794          \
+ 3rd Qu.: 7.160   3rd Qu.: 7.11   3rd Qu.:0.0000          \
+ Max.   :27.530   Max.   :27.53   Max.   :6.7271          \
+ VeryActiveDistance ModeratelyActiveDistance LightActiveDistance\
+ Min.   : 0.000     Min.   :0.0000           Min.   : 0.00      \
+ 1st Qu.: 0.000     1st Qu.:0.0000           1st Qu.: 0.87      \
+ Median : 0.000     Median :0.0200           Median : 2.93      \
+ Mean   : 1.181     Mean   :0.4786           Mean   : 2.89      \
+ 3rd Qu.: 1.310     3rd Qu.:0.6700           3rd Qu.: 4.46      \
+ Max.   :21.920     Max.   :6.4000           Max.   :12.51      \
+ SedentaryActiveDistance VeryActiveMinutes FairlyActiveMinutes\
+ Min.   :0.000000        Min.   :  0.00    Min.   :  0.00     \
+ 1st Qu.:0.000000        1st Qu.:  0.00    1st Qu.:  0.00     \
+ Median :0.000000        Median :  0.00    Median :  1.00     \
+ Mean   :0.001904        Mean   : 16.62    Mean   : 13.07     \
+ 3rd Qu.:0.000000        3rd Qu.: 25.00    3rd Qu.: 16.00     \
+ Max.   :0.100000        Max.   :202.00    Max.   :660.00     \
+ LightlyActiveMinutes SedentaryMinutes    Calories   \
+ Min.   :  0.0        Min.   :  32.0   Min.   :   0  \
+ 1st Qu.: 64.0        1st Qu.: 728.0   1st Qu.:1776  \
+ Median :181.0        Median :1057.0   Median :2062  \
+ Mean   :170.1        Mean   : 995.3   Mean   :2189  \
+ 3rd Qu.:257.0        3rd Qu.:1285.0   3rd Qu.:2667  \
+ Max.   :720.0        Max.   :1440.0   Max.   :4562  \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # 1. \uc0\u27424 \u25613 \u20516 \u12398 \u30906 \u35469 \
+> colSums(is.na(activity_data))\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4                       Id             ActivityDate \
+                       0                        0 \
+              TotalSteps            TotalDistance \
+                       0                        0 \
+         TrackerDistance LoggedActivitiesDistance \
+                       0                        0 \
+      VeryActiveDistance ModeratelyActiveDistance \
+                       0                        0 \
+     LightActiveDistance  SedentaryActiveDistance \
+                       0                        0 \
+       VeryActiveMinutes      FairlyActiveMinutes \
+                       0                        0 \
+    LightlyActiveMinutes         SedentaryMinutes \
+                       0                        0 \
+                Calories \
+                       0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # 2. \uc0\u37325 \u35079 \u12398 \u30906 \u35469 \
+> sum(duplicated(activity_data))\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 [1] 0\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # 3. \uc0\u26085 \u20184 \u12398 \u24418 \u24335 \u30906 \u35469 \u65286 \u22793 \u25563 \
+> activity_data$ActivityDate <- as.Date(activity_data$ActivityDate, format="%m/%d/%Y")\
+> str(activity_data$ActivityDate)  # Date\uc0\u22411 \u12395 \u12394 \u12387 \u12390 \u12356 \u12427 \u12363 \u30906 \u35469 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4  Date[1:457], format: "2016-03-25" "2016-03-26" "2016-03-27" "2016-03-28" ...\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # 4. \uc0\u12518 \u12540 \u12470 \u12540 \u25968 \u12398 \u30906 \u35469 \
+> n_distinct(activity_data$Id)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 [1] 35\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # 5. \uc0\u12487 \u12540 \u12479 \u22411 \u12398 \u30906 \u35469 \
+> str(activity_data)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4 spc_tbl_ [457 \'d7 15] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\
+ $ Id                      : num [1:457] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...\
+ $ ActivityDate            : Date[1:457], format: "2016-03-25" ...\
+ $ TotalSteps              : num [1:457] 11004 17609 12736 13231 12041 ...\
+ $ TotalDistance           : num [1:457] 7.11 11.55 8.53 8.93 7.85 ...\
+ $ TrackerDistance         : num [1:457] 7.11 11.55 8.53 8.93 7.85 ...\
+ $ LoggedActivitiesDistance: num [1:457] 0 0 0 0 0 0 0 0 0 0 ...\
+ $ VeryActiveDistance      : num [1:457] 2.57 6.92 4.66 3.19 2.16 ...\
+ $ ModeratelyActiveDistance: num [1:457] 0.46 0.73 0.16 0.79 1.09 ...\
+ $ LightActiveDistance     : num [1:457] 4.07 3.91 3.71 4.95 4.61 ...\
+ $ SedentaryActiveDistance : num [1:457] 0 0 0 0 0 0 0 0 0 0 ...\
+ $ VeryActiveMinutes       : num [1:457] 33 89 56 39 28 30 33 47 40 15 ...\
+ $ FairlyActiveMinutes     : num [1:457] 12 17 5 20 28 13 12 21 11 30 ...\
+ $ LightlyActiveMinutes    : num [1:457] 205 274 268 224 243 223 239 200 244 314 ...\
+ $ SedentaryMinutes        : num [1:457] 804 588 605 1080 763 ...\
+ $ Calories                : num [1:457] 1819 2154 1944 1932 1886 ...\
+ - attr(*, "spec")=\
+  .. cols(\
+  ..   Id = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   ActivityDate = \cf7 \strokec7 col_character()\cf0 \strokec4 ,\
+  ..   TotalSteps = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   TotalDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   TrackerDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   LoggedActivitiesDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   VeryActiveDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   ModeratelyActiveDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   LightActiveDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   SedentaryActiveDistance = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   VeryActiveMinutes = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   FairlyActiveMinutes = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   LightlyActiveMinutes = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   SedentaryMinutes = \cf8 \strokec8 col_double()\cf0 \strokec4 ,\
+  ..   Calories = \cf8 \strokec8 col_double()\cf0 \strokec4 \
+  .. )\
+ - attr(*, "problems")=<externalptr> \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > colSums(is.na(...))\
+\pard\pardeftab720\partightenfactor0
+\cf10 \strokec10 Error in is.data.frame(x) : '...' used in an incorrect context\
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > colSums(is.na(activity_data))\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4                       Id             ActivityDate \
+                       0                        0 \
+              TotalSteps            TotalDistance \
+                       0                        0 \
+         TrackerDistance LoggedActivitiesDistance \
+                       0                        0 \
+      VeryActiveDistance ModeratelyActiveDistance \
+                       0                        0 \
+     LightActiveDistance  SedentaryActiveDistance \
+                       0                        0 \
+       VeryActiveMinutes      FairlyActiveMinutes \
+                       0                        0 \
+    LightlyActiveMinutes         SedentaryMinutes \
+                       0                        0 \
+                Calories \
+                       0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > summary(activity_data[, c("TotalSteps", "Calories", "VeryActiveMinutes", "SedentaryMinutes")])\
+\pard\pardeftab720\partightenfactor0
+\cf0 \strokec4    TotalSteps       Calories    VeryActiveMinutes SedentaryMinutes\
+ Min.   :    0   Min.   :   0   Min.   :  0.00    Min.   :  32.0  \
+ 1st Qu.: 1988   1st Qu.:1776   1st Qu.:  0.00    1st Qu.: 728.0  \
+ Median : 5986   Median :2062   Median :  0.00    Median :1057.0  \
+ Mean   : 6547   Mean   :2189   Mean   : 16.62    Mean   : 995.3  \
+ 3rd Qu.:10198   3rd Qu.:2667   3rd Qu.: 25.00    3rd Qu.:1285.0  \
+ Max.   :28497   Max.   :4562   Max.   :202.00    Max.   :1440.0  \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > library(ggplot2)\
+> ggplot(activity_data, aes(x = TotalSteps)) +\
++     geom_histogram(binwidth = 1000, fill = "#00BFC4", color = "black") +\
++     labs(title = "\uc0\u27497 \u25968 \u12398 \u20998 \u24067 ", x = "Total Steps", y = "Frequency")\
+> > ggplot(activity_data, aes(x = TotalSteps, y = Calories)) +\
++     geom_point(alpha = 0.6, color = "#F8766D") +\
++     geom_smooth(method = "lm", se = FALSE, color = "blue") +\
++     labs(title = "\uc0\u27497 \u25968 \u12392 \u12459 \u12525 \u12522 \u12540 \u28040 \u36027 \u12398 \u38306 \u20418 ", x = "Total Steps", y = "Calories")\
+\pard\pardeftab720\partightenfactor0
+\cf12 \strokec12 `geom_smooth()` using formula = 'y ~ x'\cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > # \uc0\u27497 \u25968 \u12398 \u20998 \u24067 \
+> ggplot(activity_data, aes(x = TotalSteps)) +\
++     geom_histogram(binwidth = 1000, fill = "#00BFC4", color = "black") +\
++     labs(title = "\uc0\u27497 \u25968 \u12398 \u20998 \u24067 ", x = "Total Steps", y = "\u20214 \u25968 ")\
+> > library(ggplot2)\
+> > ggplot(activity_data, aes(x = TotalSteps)) +\
++     geom_histogram(binwidth = 1000, fill = "#00BFC4", color = "black") +\
++     labs(title = "\uc0\u27497 \u25968 \u12398 \u20998 \u24067 ", x = "Total Steps", y = "\u20214 \u25968 ")\
+> > ggplot(activity_data, aes(x = TotalSteps, y = Calories)) +\
++     geom_point(color = "#F8766D", alpha = 0.6) +\
++     geom_smooth(method = "lm", se = FALSE, color = "blue") +\
++     labs(title = "\uc0\u27497 \u25968 \u12392 \u28040 \u36027 \u12459 \u12525 \u12522 \u12540 \u12398 \u38306 \u20418 ", x = "\u27497 \u25968 ", y = "\u12459 \u12525 \u12522 \u12540 ")\
+\pard\pardeftab720\partightenfactor0
+\cf12 \strokec12 `geom_smooth()` using formula = 'y ~ x'\cf0 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \strokec2 > > ggplot(activity_data, aes(x = VeryActiveMinutes)) +\
++     geom_histogram(binwidth = 10, fill = "#7CAE00", color = "black") +\
++     labs(title = "Very Active Minutes \uc0\u12398 \u20998 \u24067 ", x = "Very Active Minutes", y = "\u20214 \u25968 ")\
+> > ggplot(activity_data, aes(x = SedentaryMinutes)) +\
++     geom_histogram(binwidth = 100, fill = "#C77CFF", color = "black") +\
++     labs(title = "Sedentary Minutes \uc0\u12398 \u20998 \u24067 ", x = "Sedentary Minutes", y = "\u20214 \u25968 ")\
+> \cf0 \strokec4 Session restored from your saved work on 2025-May-18 02:14:00 UTC (15 minutes ago)\
+}
